@@ -13,11 +13,16 @@ namespace ComputerVisionTest
     {
         // Add your Computer Vision subscription key and endpoint to your environment variables. 
         // Close/reopen your project for them to take effect.
-        static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
-        static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
+        //static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
+        //static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
+
+        static string subscriptionKey = "";
+        static string endpoint = "";
+
+
 
         // URL image used for analyzing an image (image of puppy)
-        private const string ANALYZE_URL_IMAGE = "https://moderatorsampleimages.blob.core.windows.net/samples/sample16.png";
+        private const string ANALYZE_URL_IMAGE = "https://ncpublicdata.blob.core.windows.net/images/onury.jpg";
 
         // URL image for OCR (optical character recognition). (Image of motivational meme).
         private const string EXTRACT_TEXT_URL_IMAGE = "https://ncpublicdata.blob.core.windows.net/ocr/JM-poems_Bulgaria_Ognian-Asenov.png";
@@ -31,8 +36,8 @@ namespace ComputerVisionTest
             ComputerVisionClient client = Authenticate(endpoint, subscriptionKey);
 
             // Analyze an image to get features and other properties.
-            //AnalyzeImageUrl(client, ANALYZE_URL_IMAGE).Wait();
-            BatchReadFileUrl(client, EXTRACT_TEXT_URL_IMAGE).Wait();
+            AnalyzeImageUrl(client, ANALYZE_URL_IMAGE).Wait();
+            //BatchReadFileUrl(client, EXTRACT_TEXT_URL_IMAGE).Wait();
 
 
         }
